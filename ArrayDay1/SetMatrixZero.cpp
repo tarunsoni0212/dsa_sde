@@ -1,1 +1,31 @@
 //Problem: 73. Set Matrix Zeroes
+
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+
+        int row = matrix.size();
+        int col = matrix[0].size();
+
+        vector<int> subRow(row,1);
+        vector<int>subCol(col,1);
+
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++){
+                if(matrix[i][j]==0){
+                    subRow[i]=0;
+                    subCol[j]=0;
+                }
+            }
+        }
+
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++){
+                if(subRow[i]==0 || subCol[j]==0){
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+    }
+};
